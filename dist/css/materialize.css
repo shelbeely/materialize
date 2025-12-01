@@ -314,7 +314,9 @@
   --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
   --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
-  /* Easing tokens - Emphasized (Expressive) curves */
+  /* Easing tokens - Emphasized (Expressive) curves
+     Note: The base emphasized curve is the same as standard per M3 spec.
+     The accelerate/decelerate variants differ for expressive motion. */
   --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
   --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
@@ -4732,13 +4734,14 @@ small {
   border-radius: 0;
 }
 .btn-floating.btn-large {
-  width: 96px;
-  height: 96px;
+  --btn-large-fab-size: 96px;
+  width: var(--btn-large-fab-size);
+  height: var(--btn-large-fab-size);
   border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 0;
 }
 .btn-floating.btn-large.halfway-fab {
-  bottom: -48px;
+  bottom: calc(var(--btn-large-fab-size) * -0.5);
 }
 .btn-floating.btn-small {
   --btn-small-height: calc(0.75 * var(--btn-height));

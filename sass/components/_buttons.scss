@@ -130,12 +130,13 @@
 
   &.btn-large {
     // M3 Expressive: Large FAB uses 96px size
-    width: 96px;
-    height: 96px;
+    --btn-large-fab-size: 96px;
+    width: var(--btn-large-fab-size);
+    height: var(--btn-large-fab-size);
     border-radius: var(--md-sys-shape-corner-extra-large);
     padding: 0;
     &.halfway-fab {
-      bottom: -96px * 0.5;
+      bottom: calc(var(--btn-large-fab-size) * -0.5);
     }
     // font-size:
     // i {
