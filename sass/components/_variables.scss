@@ -8,13 +8,13 @@ $md_sys_typescale_body-large_size: 16px;
 $success-color: colorFunc("green", "base") !default;
 $link-color: colorFunc("light-blue", "darken-1") !default;
 
-// Floating buttons
+// Floating buttons - M3 Expressive uses larger rounded corners
 $button-floating-background: var(--md-sys-color-secondary) !default;
 $button-floating-background-hover: var(--md-ref-palette-secondary70) !default;
 $button-floating-background-focus: var(--md-ref-palette-secondary80) !default;
 $button-floating-color: var(--md-sys-color-on-secondary) !default;
-$button-floating-size: 40px !default;
-$button-floating-radius: 16px !default;
+$button-floating-size: 56px !default;
+$button-floating-radius: var(--md-sys-shape-corner-large) !default;
 
 // Dropdown
 $dropdown-item-height: 50px !default;

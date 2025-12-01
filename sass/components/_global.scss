@@ -77,7 +77,8 @@ a {
 }
 
 .hoverable {
-  transition: box-shadow .25s;
+  // M3 Expressive: Enhanced transition with emphasized easing
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
   &:hover {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -285,7 +286,8 @@ table {
   }
 
   &.highlight > tbody > tr {
-    transition: background-color .25s ease;
+    // M3 Expressive: Enhanced transition with emphasized easing
+    transition: background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.04);

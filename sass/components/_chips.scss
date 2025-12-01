@@ -15,16 +15,25 @@
   padding-left: var(--padding);
   padding-right: var(--padding);  
   font-size: var(--font-size);
-  font-weight: 500;    
-  border-radius: 8px;
+  font-weight: 500;
+  // M3 Expressive: Use small corner radius for chips
+  border-radius: var(--md-sys-shape-corner-small);
   align-items: center;
   user-select: none;
   vertical-align: top;
+  // M3 Expressive: Enhanced transition
+  transition: 
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
 
   &:focus {
     outline: none;
     background-color: var(--md-sys-color-primary);
     color:  var(--md-sys-color-on-primary);
+  }
+
+  &:active {
+    transform: scale(0.97);
   }
 }
 

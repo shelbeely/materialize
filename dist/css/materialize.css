@@ -275,6 +275,53 @@
   --md-sys-typescale-title-small-font-size: 14px;
   --md-sys-typescale-title-small-line-height: 20px;
   --md-sys-typescale-title-small-letter-spacing: 0.10px;
+  /* ========================================
+     Material Design 3 Expressive - Shape Tokens
+     10-level corner radius scale
+     ======================================== */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-large-increased: 20px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-large-increased: 32px;
+  --md-sys-shape-corner-extra-extra-large: 48px;
+  --md-sys-shape-corner-full: 9999px;
+  /* ========================================
+     Material Design 3 Expressive - Motion Tokens
+     Spring-based animation system
+     ======================================== */
+  /* Duration tokens */
+  --md-sys-motion-duration-short1: 50ms;
+  --md-sys-motion-duration-short2: 100ms;
+  --md-sys-motion-duration-short3: 150ms;
+  --md-sys-motion-duration-short4: 200ms;
+  --md-sys-motion-duration-medium1: 250ms;
+  --md-sys-motion-duration-medium2: 300ms;
+  --md-sys-motion-duration-medium3: 350ms;
+  --md-sys-motion-duration-medium4: 400ms;
+  --md-sys-motion-duration-long1: 450ms;
+  --md-sys-motion-duration-long2: 500ms;
+  --md-sys-motion-duration-long3: 550ms;
+  --md-sys-motion-duration-long4: 600ms;
+  --md-sys-motion-duration-extra-long1: 700ms;
+  --md-sys-motion-duration-extra-long2: 800ms;
+  --md-sys-motion-duration-extra-long3: 900ms;
+  --md-sys-motion-duration-extra-long4: 1000ms;
+  /* Easing tokens - Standard curves */
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  /* Easing tokens - Emphasized (Expressive) curves */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  /* Easing tokens - Spring-like expressive curves */
+  --md-sys-motion-easing-expressive-spatial-fast: cubic-bezier(0.42, 1.67, 0.21, 0.90);
+  --md-sys-motion-easing-expressive-spatial-default: cubic-bezier(0.38, 1.21, 0.22, 1.00);
+  --md-sys-motion-easing-expressive-effects: cubic-bezier(0.2, 0, 0, 1);
 }
 
 /* System Defaults */
@@ -3074,10 +3121,10 @@ a {
 }
 
 .hoverable {
-  -webkit-transition: -webkit-box-shadow 0.25s;
-  transition: -webkit-box-shadow 0.25s;
-  transition: box-shadow 0.25s;
-  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 }
 .hoverable:hover {
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -3311,8 +3358,8 @@ table.striped tbody > tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.08);
 }
 table.highlight > tbody > tr {
-  -webkit-transition: background-color 0.25s ease;
-  transition: background-color 0.25s ease;
+  -webkit-transition: background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 }
 table.highlight > tbody > tr:hover {
   background-color: rgba(0, 0, 0, 0.04);
@@ -4477,7 +4524,8 @@ small {
   --btn-padding: 24px;
   --btn-padding-icon: 16px;
   --btn-gap-icon: 8px;
-  --btn-border-radius: 4px;
+  /* M3 Expressive: Full rounded corners for buttons */
+  --btn-border-radius: var(--md-sys-shape-corner-full);
   --btn-font-size: 14px;
 }
 
@@ -4506,11 +4554,17 @@ small {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
+  -webkit-transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
 }
 .btn:focus, .btn-floating:focus, .btn-large:focus, .btn-small:focus, .btn-flat:focus {
   background-color: var(--md-sys-color-primary-container);
+}
+.btn:active, .btn-floating:active, .btn-large:active, .btn-small:active, .btn-flat:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .btn.icon-left, .icon-left.btn-small, .icon-left.btn-large, .btn.icon-right, .icon-right.btn-small, .icon-right.btn-large {
@@ -4642,11 +4696,11 @@ small {
 }
 
 .btn-floating {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   color: var(--md-sys-color-on-primary-container);
   background-color: var(--md-sys-color-primary-container);
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   padding: 0;
   display: grid;
   grid-auto-flow: column;
@@ -4657,8 +4711,10 @@ small {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  -webkit-transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
   cursor: pointer;
   vertical-align: middle;
 }
@@ -4668,16 +4724,21 @@ small {
 .btn-floating:focus {
   background-color: var(--md-ref-palette-secondary80);
 }
+.btn-floating:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
 .btn-floating:before {
   border-radius: 0;
 }
 .btn-floating.btn-large {
-  width: 56px;
-  height: 56px;
+  width: 96px;
+  height: 96px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
   padding: 0;
 }
 .btn-floating.btn-large.halfway-fab {
-  bottom: -28px;
+  bottom: -48px;
 }
 .btn-floating.btn-small {
   --btn-small-height: calc(0.75 * var(--btn-height));
@@ -4690,7 +4751,7 @@ small {
 .btn-floating.halfway-fab {
   position: absolute;
   right: 24px;
-  bottom: -20px;
+  bottom: -28px;
 }
 .btn-floating.halfway-fab.left {
   right: auto;
@@ -4833,10 +4894,10 @@ button.btn-floating {
   top: 0;
   left: 0;
   z-index: -1;
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   background-color: var(--md-sys-color-secondary);
-  border-radius: 16px;
+  border-radius: var(--md-sys-shape-corner-large);
   -webkit-transform: scale(0);
           transform: scale(0);
 }
@@ -5569,18 +5630,18 @@ body {
   }
 }
 .scale-transition {
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
-  transition: -webkit-transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
-  transition: transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
-  transition: transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63), -webkit-transform 0.3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
+  -webkit-transition: -webkit-transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-spatial-default) !important;
+  transition: -webkit-transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-spatial-default) !important;
+  transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-spatial-default) !important;
+  transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-spatial-default), -webkit-transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-spatial-default) !important;
 }
 .scale-transition.scale-out {
   -webkit-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: -webkit-transform 0.2s !important;
-  transition: -webkit-transform 0.2s !important;
-  transition: transform 0.2s !important;
-  transition: transform 0.2s, -webkit-transform 0.2s !important;
+  -webkit-transition: -webkit-transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) !important;
+  transition: -webkit-transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) !important;
+  transition: transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) !important;
+  transition: transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate), -webkit-transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) !important;
 }
 .scale-transition.scale-in {
   -webkit-transform: scale(1);
@@ -5588,13 +5649,13 @@ body {
 }
 
 .card-panel {
-  -webkit-transition: -webkit-box-shadow 0.25s;
-  transition: -webkit-box-shadow 0.25s;
-  transition: box-shadow 0.25s;
-  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  -webkit-transition: -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
   padding: 24px;
   margin: 0.5rem 0 1rem 0;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   background-color: var(--md-sys-color-surface);
 }
 
@@ -5602,11 +5663,11 @@ body {
   --background-color: color-mix(in srgb, var(--md-sys-color-surface), var(--md-sys-color-surface-tint) 17%);
   position: relative;
   background-color: var(--background-color);
-  -webkit-transition: -webkit-box-shadow 0.25s;
-  transition: -webkit-box-shadow 0.25s;
-  transition: box-shadow 0.25s;
-  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
-  border-radius: 12px;
+  -webkit-transition: -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  border-radius: var(--md-sys-shape-corner-medium);
 }
 .card .card-title {
   font-size: 24px;
@@ -5773,11 +5834,17 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
+  -webkit-transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
 }
 .card .card-action a:focus {
   background-color: var(--md-sys-color-primary-container);
+}
+.card .card-action a:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 .card .card-action a:first-child {
   margin-left: -1.6rem;
@@ -5962,8 +6029,8 @@ body {
   font-size: 14px;
   text-overflow: ellipsis;
   overflow: hidden;
-  -webkit-transition: color 0.28s ease, background-color 0.28s ease;
-  transition: color 0.28s ease, background-color 0.28s ease;
+  -webkit-transition: color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized), background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  transition: color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized), background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 }
 .tabs .tab a.active {
   background-color: transparent;
@@ -6158,7 +6225,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal {
   --modal-footer-divider-height: 1px;
-  --modal-border-radius: 28px;
+  --modal-border-radius: var(--md-sys-shape-corner-extra-large);
   --modal-padding: 24px;
   --modal-padding-bottom: 16px;
   --modal-background-color: color-mix(in srgb, var(--md-sys-color-surface), var(--md-sys-color-surface-tint) 17%);
@@ -6336,7 +6403,7 @@ body.keyboard-focused .dropdown-content li:focus {
   padding-right: var(--padding);
   font-size: var(--font-size);
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: var(--md-sys-shape-corner-small);
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -6346,11 +6413,19 @@ body.keyboard-focused .dropdown-content li:focus {
       -ms-user-select: none;
           user-select: none;
   vertical-align: top;
+  -webkit-transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
 }
 .chip:focus {
   outline: none;
   background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
+}
+.chip:active {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
 }
 
 .chip.outlined {
@@ -9416,11 +9491,17 @@ input[type=text].timepicker-input-minutes:focus {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: background-color 0.2s ease-out;
-  transition: background-color 0.2s ease-out;
+  -webkit-transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
+  transition: background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast), -webkit-box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized), -webkit-transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
 }
 .pagination li a:focus {
   background-color: var(--md-sys-color-primary-container);
+}
+.pagination li a:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 .pagination li.active a {
   color: var(--md-sys-color-on-primary);
