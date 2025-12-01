@@ -1,9 +1,10 @@
+// M3 Expressive: Enhanced scale transition with spring-like motion
 .scale-transition {
-  transition: transform .3s cubic-bezier(0.53, 0.01, 0.36, 1.63) !important;
+  transition: transform var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-expressive-spatial-default) !important;
 
   &.scale-out {
     transform: scale(0);
-    transition: transform .2s !important;
+    transition: transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-accelerate) !important;
   }
 
   &.scale-in {

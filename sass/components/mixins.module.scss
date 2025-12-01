@@ -23,10 +23,18 @@
   white-space: nowrap;
   outline: 0;
   user-select: none;
-  transition: background-color .2s ease-out;
+  // M3 Expressive: Spring-like motion with emphasized easing
+  transition: 
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
 
   &:focus {
     background-color: var(--md-sys-color-primary-container);
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 }
 

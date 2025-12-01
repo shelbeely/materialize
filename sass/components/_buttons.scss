@@ -7,7 +7,8 @@
   --btn-padding: 24px;
   --btn-padding-icon: 16px;
   --btn-gap-icon: 8px;
-  --btn-border-radius: 4px;
+  /* M3 Expressive: Full rounded corners for buttons */
+  --btn-border-radius: var(--md-sys-shape-corner-full);
   --btn-font-size: 14px;
 }
 
@@ -101,7 +102,11 @@
   overflow: hidden;
   z-index: 1;
   @extend .z-depth-1;
-  transition: background-color .3s;
+  // M3 Expressive: Enhanced transition with spring-like motion
+  transition: 
+    background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-expressive-spatial-fast);
   cursor: pointer;
   vertical-align: middle;
 
@@ -115,16 +120,23 @@
     @extend .z-depth-1-half;
   }
 
+  &:active {
+    transform: scale(0.95);
+  }
+
   &:before {
     border-radius: 0;
   }
 
   &.btn-large {
-    width: 56px;
-    height: 56px;
+    // M3 Expressive: Large FAB uses 96px size
+    --btn-large-fab-size: 96px;
+    width: var(--btn-large-fab-size);
+    height: var(--btn-large-fab-size);
+    border-radius: var(--md-sys-shape-corner-extra-large);
     padding: 0;
     &.halfway-fab {
-      bottom: -56px * 0.5;
+      bottom: calc(var(--btn-large-fab-size) * -0.5);
     }
     // font-size:
     // i {

@@ -4,7 +4,8 @@
 // use with dialog html element
 .modal {
   --modal-footer-divider-height: 1px;
-  --modal-border-radius: 28px;
+  // M3 Expressive: Use extra-large corner radius for dialogs
+  --modal-border-radius: var(--md-sys-shape-corner-extra-large);
   --modal-padding: 24px;
   --modal-padding-bottom: 16px;
   --modal-background-color: color-mix(in srgb, var(--md-sys-color-surface), var(--md-sys-color-surface-tint) 17%);

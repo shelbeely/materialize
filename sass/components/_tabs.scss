@@ -83,7 +83,9 @@
       font-size: 14px;
       text-overflow: ellipsis;
       overflow: hidden;
-      transition: color .28s ease, background-color .28s ease;
+      // M3 Expressive: Enhanced transition with emphasized easing
+      transition: color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized), 
+                  background-color var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
 
       &.active {
         background-color: transparent;
